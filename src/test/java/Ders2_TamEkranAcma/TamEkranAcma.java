@@ -28,12 +28,7 @@ public class TamEkranAcma {
 
     page.close();
     browser.close();
-
     playwright.close();
-
-
-
-
 
 
     }
