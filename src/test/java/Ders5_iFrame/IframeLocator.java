@@ -41,30 +41,9 @@ public class IframeLocator {
         Locator elementalSeleniumText = page.getByText("Elemental Selenium");
         System.out.println(elementalSeleniumText.innerText());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         page.close();
         browser.close();
         playwright.close();
-
-
-
+    
     }
 }
