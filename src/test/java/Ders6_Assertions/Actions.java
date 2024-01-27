@@ -66,23 +66,9 @@ public class Actions {
         Thread.sleep(3000);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         page.close();
         browser.close();
         playwright.close();
 
     }
-
-
 }
