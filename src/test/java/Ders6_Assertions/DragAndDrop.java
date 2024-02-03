@@ -33,8 +33,6 @@ public class DragAndDrop {
         page.getByText("Drop here").first().hover();
         page.mouse().up();
 
-
-
         Thread.sleep(2000);
         page.close();
         browser.close();

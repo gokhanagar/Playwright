@@ -1,4 +1,4 @@
-package Ders6_Assertions;
+package Ders7_Actions;
 
 import com.microsoft.playwright.*;
 
@@ -21,7 +21,7 @@ public class MouseClick {
         page.navigate("https://demoqa.com/buttons");
 
         // Generic click
-        Locator clickMe  = page.getByText("Click Me").nth(2);
+        Locator clickMe = page.getByText("Click Me").nth(2);
         clickMe.click();
 
         Thread.sleep(2000);
@@ -35,10 +35,10 @@ public class MouseClick {
         // Hover over element
         page.getByText("Right Click Me").hover();
 
+
         page.close();
         browser.close();
         playwright.close();
-
 
     }
 }

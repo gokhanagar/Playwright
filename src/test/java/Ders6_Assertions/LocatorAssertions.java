@@ -45,14 +45,6 @@ public class LocatorAssertions {
         assertThat(searchBox).isVisible();
 
 
-
-
-
-
-
-
-
-
         page.close();
         browser.close();
         playwright.close();

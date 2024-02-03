@@ -1,10 +1,11 @@
-package Ders6_Assertions;
+package Ders7_Actions;
 
 import com.microsoft.playwright.*;
 
 import java.awt.*;
+import java.nio.file.Paths;
 
-public class MouseClick {
+public class UploadFile1 {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -18,23 +19,18 @@ public class MouseClick {
         Page page = browser.newPage();
         page.setViewportSize(width, height);
 
-        page.navigate("https://demoqa.com/buttons");
+        page.navigate("https://the-internet.herokuapp.com/upload");
 
-        // Generic click
-        Locator clickMe  = page.getByText("Click Me").nth(2);
-        clickMe.click();
+        // Select one file
+        Locator dosyaSecButton = page.locator("input[id='file-upload']");
+        String dosyaYolu = System.getProperty("user.home")+ "/Desktop/YouTubePlayWright/src/test/java/utilities/files/some-file.txt";
 
-        Thread.sleep(2000);
+        dosyaSecButton.setInputFiles(Paths.get(dosyaYolu));
 
-        // Double click
-        Locator doubleClickMe = page.getByText("Double Click Me");
-        doubleClickMe.dblclick();
+        page.locator("input[id='file-submit']").click();
 
-        Thread.sleep(2000);
 
-        // Hover over element
-        page.getByText("Right Click Me").hover();
-
+        Thread.sleep(5000);
         page.close();
         browser.close();
         playwright.close();

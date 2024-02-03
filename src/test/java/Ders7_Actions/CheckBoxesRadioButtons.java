@@ -1,17 +1,13 @@
-package Ders6_Assertions;
+package Ders7_Actions;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
 
 import java.awt.*;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class PageAssertions {
-
-    public static void main(String[] args) {
+public class CheckBoxesRadioButtons {
+    public static void main(String[] args) throws InterruptedException {
 
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int) dimension.getWidth();
@@ -25,16 +21,22 @@ public class PageAssertions {
 
         page.navigate("https://www.ebay.com/");
 
-        // page assertions
+        Locator registerButton = page.getByText("register").first();
+        registerButton.click();
 
-        // hasUrl
-        assertThat(page).hasURL("https://www.ebay.com/");
+        // Checkboxes and radio buttons
+        Locator businessAccount = page.getByText("Business account").first();
 
-        // hasTitle
-        assertThat(page).hasTitle("Electronics, Cars, Fashion, Collectibles & More | eBay");
+        businessAccount.check();
+        assertThat(businessAccount).isChecked();
+        Thread.sleep(3000);
 
-        // not ()
-        assertThat(page).not().hasTitle("test");
+        /*
+        businessAccount.setChecked(true);
+        assertThat(businessAccount).isChecked();
+        Thread.sleep(3000);
+
+         */
 
         page.close();
         browser.close();
@@ -42,5 +44,4 @@ public class PageAssertions {
 
 
     }
-
 }

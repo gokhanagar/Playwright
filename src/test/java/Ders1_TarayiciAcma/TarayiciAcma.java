@@ -7,7 +7,6 @@ import java.awt.*;
 
 public class TarayiciAcma {
 
-
     public static void main(String[] args) {
 
             Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -21,22 +20,17 @@ public class TarayiciAcma {
 
             BrowserContext context = browser.newContext(new Browser.NewContextOptions().setViewportSize(width,height));
 
-
             Page page = context.newPage();
-
             //page.setViewportSize(width,height);
 
             page.navigate("http://playwright.dev");
-
             System.out.println(page.title());
 
 
             page.close();
             browser.close();
-
             playwright.close();
 
 
         }
-
     }

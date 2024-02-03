@@ -1,4 +1,4 @@
-package Ders6_Assertions;
+package Ders7_Actions;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
@@ -7,11 +7,8 @@ import com.microsoft.playwright.Playwright;
 
 import java.awt.*;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-
-public class PageAssertions {
-
-    public static void main(String[] args) {
+public class DragAndDrop {
+    public static void main(String[] args) throws InterruptedException {
 
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int) dimension.getWidth();
@@ -23,24 +20,25 @@ public class PageAssertions {
         Page page = browser.newPage();
         page.setViewportSize(width, height);
 
-        page.navigate("https://www.ebay.com/");
+        page.navigate("https://demoqa.com/droppable");
 
-        // page assertions
+        //Drag and Drop
+        page.getByText("Drag me").first().dragTo(page.getByText("Drop here").first());
 
-        // hasUrl
-        assertThat(page).hasURL("https://www.ebay.com/");
+        /*
+        // manually
+        page.getByText("Drag me").first().hover();
+        page.mouse().down();
+        page.getByText("Drop here").first().hover();
+        page.mouse().up();
 
-        // hasTitle
-        assertThat(page).hasTitle("Electronics, Cars, Fashion, Collectibles & More | eBay");
+         */
 
-        // not ()
-        assertThat(page).not().hasTitle("test");
-
+        Thread.sleep(3000);
         page.close();
         browser.close();
         playwright.close();
 
 
     }
-
 }

@@ -1,10 +1,11 @@
-package Ders6_Assertions;
+package Ders7_Actions;
 
 import com.microsoft.playwright.*;
+import com.microsoft.playwright.options.SelectOption;
 
 import java.awt.*;
 
-public class MouseClick {
+public class DropDownMenu {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -18,22 +19,20 @@ public class MouseClick {
         Page page = browser.newPage();
         page.setViewportSize(width, height);
 
-        page.navigate("https://demoqa.com/buttons");
+        page.navigate("https://www.ebay.com/");
 
-        // Generic click
-        Locator clickMe  = page.getByText("Click Me").nth(2);
-        clickMe.click();
+        // Select options
+        Locator selectCategory = page.getByLabel("Select a category for search");
+        Thread.sleep(3000);
 
-        Thread.sleep(2000);
+        // select by value
+        selectCategory.selectOption("2984"); // baby
+        Thread.sleep(3000);
 
-        // Double click
-        Locator doubleClickMe = page.getByText("Double Click Me");
-        doubleClickMe.dblclick();
+        // select by label
+        selectCategory.selectOption(new SelectOption().setLabel("Consumer Electronics"));
+        Thread.sleep(3000);
 
-        Thread.sleep(2000);
-
-        // Hover over element
-        page.getByText("Right Click Me").hover();
 
         page.close();
         browser.close();

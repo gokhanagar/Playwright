@@ -1,10 +1,10 @@
-package Ders6_Assertions;
+package Ders7_Actions;
 
 import com.microsoft.playwright.*;
 
 import java.awt.*;
 
-public class MouseClick {
+public class TextInputKeysAndShortcuts {
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -18,22 +18,18 @@ public class MouseClick {
         Page page = browser.newPage();
         page.setViewportSize(width, height);
 
-        page.navigate("https://demoqa.com/buttons");
+        page.navigate("https://www.ebay.com/");
 
-        // Generic click
-        Locator clickMe  = page.getByText("Click Me").nth(2);
-        clickMe.click();
+        // Text input
+        Locator searchBox = page.getByPlaceholder("Search for anything");
+        searchBox.fill("bicycle");
 
-        Thread.sleep(2000);
+        // Keys and shortcuts
+        searchBox.press("Enter");
 
-        // Double click
-        Locator doubleClickMe = page.getByText("Double Click Me");
-        doubleClickMe.dblclick();
+       // page.keyboard().press("Enter");
+        Thread.sleep(3000);
 
-        Thread.sleep(2000);
-
-        // Hover over element
-        page.getByText("Right Click Me").hover();
 
         page.close();
         browser.close();
