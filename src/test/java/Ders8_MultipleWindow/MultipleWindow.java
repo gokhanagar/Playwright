@@ -75,5 +75,7 @@ public class MultipleWindow {
         page.close();
         browser.close();
         playwright.close();
+
+        
     }
 }
