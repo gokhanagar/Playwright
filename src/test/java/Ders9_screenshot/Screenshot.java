@@ -43,7 +43,6 @@ public class Screenshot {
 
          */
 
-
         // Elementin fotografini cekme
         Locator searchBox = page.getByPlaceholder("Search for anything");
 
@@ -52,32 +51,6 @@ public class Screenshot {
 
         // Maskeleme
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(dosyaYolu)).setMask(Arrays.asList(searchBox)));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         page.close();
         browser.close();
