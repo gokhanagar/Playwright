@@ -32,7 +32,6 @@ public class IframeUrl {
 
         }
 
-
         // Frames by url
         Frame frame = page.frameByUrl("about:blank");
 

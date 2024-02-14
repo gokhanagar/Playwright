@@ -22,7 +22,6 @@ public class Tab {
 
         page.navigate("https://the-internet.herokuapp.com/windows");
 
-
         // Get page after a specific action (e.g. clicking a link)
         Page newPage = page.context().waitForPage(() -> {
             page.getByText("Click Here").click(); // Opens a new tab

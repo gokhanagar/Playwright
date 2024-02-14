@@ -37,8 +37,6 @@ public class Actions {
         register.click();
 
 
-
-
         // Checkboxes and radio buttons
         Locator businessAccount = page.getByText("Business account");
        /*

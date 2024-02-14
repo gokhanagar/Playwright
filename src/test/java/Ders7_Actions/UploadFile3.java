@@ -31,7 +31,6 @@ public class UploadFile3 {
         });
         fileChooser.setFiles(Paths.get(dosyaYolu));
 
-
         Thread.sleep(5000);
         page.close();
         browser.close();
