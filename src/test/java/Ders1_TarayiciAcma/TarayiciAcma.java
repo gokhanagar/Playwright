@@ -18,10 +18,10 @@ public class TarayiciAcma {
                     new BrowserType.LaunchOptions().setHeadless(false));
 
 
-            BrowserContext context = browser.newContext(new Browser.NewContextOptions().setViewportSize(width,height));
+            BrowserContext context = browser.newContext(new Browser.NewContextOptions());
 
             Page page = context.newPage();
-            //page.setViewportSize(width,height);
+
 
             page.navigate("http://playwright.dev");
             System.out.println(page.title());
