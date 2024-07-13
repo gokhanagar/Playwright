@@ -70,5 +70,6 @@ public class DownloadFile {
         page.close();
         browser.close();
         playwright.close();
+        
     }
 }
