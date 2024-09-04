@@ -47,46 +47,10 @@ public class DownloadDelete {
 
         System.out.println("dosya durumu 3 " + Files.exists(Paths.get(filePath, download.suggestedFilename())));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         Thread.sleep(2000);
         page.close();
         browser.close();
         playwright.close();
-
 
 
     }
